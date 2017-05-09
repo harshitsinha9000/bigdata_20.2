@@ -1,0 +1,7 @@
+if hive table does not exists------------
+
+sqoop import --connect jdbc:mysql://localhost/db1 --username root --table customer -m 1 --check-column id --incremental append --target-dir company_new_imported  --hive-import --create-hive-table ;
+
+if hive table exists------------
+
+sqoop import --connect jdbc:mysql://localhost/db1 --username root --table customer -m 1 --check-column id --incremental append --target-dir company_new_imported  --hive-import --hive-table customer;
